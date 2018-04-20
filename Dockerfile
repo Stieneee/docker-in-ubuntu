@@ -19,3 +19,6 @@ RUN add-apt-repository \
 RUN apt-get update && \
    apt-get -y install docker-ce && \
    apt-get clean
+
+# assume --link docker:dind
+ENV DOCKER_HOST tcp://docker:2375
