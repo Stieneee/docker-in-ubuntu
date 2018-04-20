@@ -1,11 +1,12 @@
 FROM ubuntu:latest
 
 RUN apt-get update && \
-   apt-get install \
+   apt-get -y install \
    apt-transport-https \
    ca-certificates \
    curl \
-   software-properties-common && \
+   software-properties-common \
+   sudo && \
    apt-get clean
 
 RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -16,5 +17,5 @@ RUN add-apt-repository \
    stable"
 
 RUN apt-get update && \
-   apt-get install docker-ce && \
+   apt-get -y install docker-ce && \
    apt-get clean
